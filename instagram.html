@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en"> <!--The language is english-->
+<head>
+    <meta charset="UTF-8"> <!--Ensuring proper display of the page-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Proper scaling on mobile devices-->
+    <title>Instagram - Social Media Insights</title><!--Title shown in browser tab-->
+    <link rel="stylesheet" href="style.css"><!--Connects to style.css-->
+    <!--This is the internal css for webpage layout and design-->
+    <style>
+        /*Body styling*/a
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #111217; /*Dark background*/
+            color: #E4E4E4; /*light text for contrast*/
+            margin: 0;
+            padding: 0;
+        }
+        /*Header styling*/
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: #1F2833;/*Dark blue-grey*/
+            padding: 10px 0;
+            z-index: 1000;/*Making sure its above the other elements*/
+        }
+        /*The brand name inside the navigation bar */
+        nav .brand-name {
+            font-size: 2em;
+            color: #66FCF1; /*colour aqua blue*/
+            text-align: center;
+        }
+        /*This is the navigation bar layout*/
+        .navbar {
+            display: flex; /*This makes the characters inside of the navbar in a row*/
+            justify-content: space-between;/*The first character is at the start the last character is at the end and the rest are split evenly through the middle*/
+            align-items: center; /*Everything is aligned in the center*/
+            background-color: #1F2833;/*This would be the background colour*/
+            padding: 10px 40px; /*Padding for the navbar so that the characters inside do not take up everything so it looks clean and minimalistic*/
+        }
+        /*Navbar links on the right*/
+        .nav-right a {
+            color: #C5C6C7; /*light grey colour*/
+            text-decoration: none; /*no text decoration needed*/
+            padding: 10px 15px; /*Padding to make it evenyl spread out inside of the div*/
+        }
+
+        /*styling the hero section basically the body*/
+        .hero-section {
+            padding: 120px 20px;/*top padding for fixed header*/
+            background: linear-gradient(to bottom, #0B0C10, #1F2833); /*gradient background*/
+            color: #E4E4E4; /*The colour of the text is white unless certain parts have made changes*/
+            flex-direction: column; /*everything is layed out directly on top of another in a column*/
+        }
+        /*inside of the hero section*/
+        .hero-content {
+            max-width: 2000px;
+            width: 100%;
+            padding: 30px;
+            max-height: 80vh; /*This means that the hero content is 80% of viewport height*/
+            overflow-y: auto; /*scroll if content does not fit the page or overflows*/
+        }
+        /*Heading inside the hero section where the information is desiplayed and where the text actually is*/
+        .hero-right h1 {
+            font-size: 3em;/*the font size would be 3 times the default of 16 so 48px*/
+            color: #66FCF1;/*the colour*/
+            margin-bottom: 20px;
+        }
+        /*Paragraph under the heading*/
+        .hero-right p {
+            font-size: 1.2em; /*This would be 1.2 times the parent font-size which would be around 16 as default*/
+            margin-bottom: 40px;
+        }
+        /*Each clickeable question box*/
+        .question-box {
+            background-color: #1F2833;
+            border-radius: 8px; /*This gives the question box a bit of curve all around*/
+            margin: 15px 0;
+            padding: 20px;
+            color: #C5C6C7;
+            cursor: pointer; /*Indicating this is an interactive element*/
+            font-weight: 600;/*Thickness and heaviness of characters*/
+            font-size: 1.2em;
+            transition: background-color 0.3s ease; /*smooth hover effect so it doesn't look blocky*/
+        }
+        /*hover effect*/
+        .question-box:hover {
+            background-color: #66FCF1;
+            color: #111217;
+        }
+        /*The answer box is hidden by default so that it pops up when the user clicks*/
+        .answer {
+            display: none;
+            background-color: #2D3436; 
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 17px;
+            color: #E4E4E4;
+        }
+        /*This will be shown when click or active*/
+        .answer.active {
+            display: block; /*The display is going to take place in new line when clicked to be shown underneath*/
+        }
+
+        /*this part of the page which is the body or middle */
+        .hero-content {
+            max-height: 80vh; /*will take up 80% of the viewport height or user screen according to what is displayed*/
+            overflow-y: auto; /*so when the interactive elements take up more space you can scroll*/
+        }
+        /*footer styling*/
+        footer {
+            background-color: #1F2833; /*Background colour*/
+            text-align: center; /*text is in center*/
+            padding: 20px;
+            color: #C5C6C7; /*the colour of text*/
+        }
+        /*This will be the p element in footer*/
+        footer p {
+            font-size: 1em; /*just the normal 1 times the base font which is 16*/
+        }
+        /*I have done the em and vh so this stays proprtionate throughout and don't have to expirement with font-sizes too much*/
+        .about_instagram { /*This will be css about the summary of what the platform will be about*/
+            font-size: 15px; /*the font size*/
+            width: 1000px; /*the width so that everything doesn't spread horizontally too much*/
+            height:300px; /*this will be the height*/
+            border:10px solid; /* Border thickness */
+            border-image: linear-gradient(to left,#111217 ,#66FCF1 ) 1;
+            padding: 20px;
+            text-align: center; /*the text is centered so it does not appear to be misaligned*/
+            font-family: sans-serif; /*the font*/
+            margin:10px;
+            color: #fafafa; /*The colour*/
+        }
+    .instadver img{
+        width: 50%;
+        height: 50%;
+        border-radius: 20px;
+        border:5px solid #66FCF1;  /* Example: 5px solid black border */
+        padding: 10px; /* Adds 10px of space between border and image */
+        margin: 20px; /* Adds 20px of space around the entire image and border */
+        
+        }
+    .instadver {
+        display: flex;
+        justify-content: center;
+        background-color:#1F2833;
+        padding-bottom: 100px;
+      
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        <!--This is the fixed top which is called the navbar-->
+        <nav class="navbar">
+            <div class="nav-left">
+                <span class="brand-name">MediaMetrics</span>
+            </div>
+            <div class="nav-right">
+                <a href="index.html">Home</a> <!--This is the home page link on the nav-->
+                <a href="instagram.html">Instagram</a> <!--This is the instagram page link on the nav-->
+                <a href="tiktok.html">TikTok</a> <!--This is the tiktok page link on the nav-->
+                <a href="twitter.html">Twitter</a> <!--This is the twitter page link on the nav-->
+            </div>
+        </nav>
+    </header>
+    <!--This is the hero section or the body where the interactive content is shown-->
+    <div class="hero-section">
+        <div class="hero-content"> <!--this is the content part of the page-->
+            <div class="hero-right"> <!--This is the right part of the hero section or the main data-->
+                <br>
+                <br>
+                <br>
+                <br>
+                <br> <!--Bunch of line breaks so the h1 tag can be seen-->
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h1>Explore Instagram Insights</h1>
+                <div class="about_instagram"> <!--This will be the summary about the platform before the questions-->
+                    <h2>Instagram is a free social media app owned by Meta (formerly Facebook) that allows users to share photos and videos with their followers. Launched in 2010, it has become one of the most popular platforms worldwide, with over 2 billion users. The app focuses on visual content, offering features like the main feed for posts, Stories that disappear after 24 hours, Reels for short-form vertical videos, and the Explore page to discover trending content. Users can also send private messages, go live, and even shop directly through the app. Instagram is widely used by individuals, influencers, and businesses for personal expression, entertainment, networking, and marketing.</h2>
+                </div>
+                <p>Click on the questions below to reveal data and insights about Instagram usage.</p>
+                <!--These are the question and answer boxes with toggle interaction-->
+                <div class="question-box" onclick="toggleAnswer('answer1')"> <!--This toggleanswer connects with id answer1 and this will pop up as the answer when clicked and pop down when clicked again like a toggle-->
+                    <span>Which age groups use Instagram the most?</span>
+                </div>
+                <div class="answer" id="answer1">
+                    Instagram is most popular among younger audiences. The majority of users are aged between 18 and 24 years old, with 31.7% of internet users in this age group using Instagram regularly.
+                </div>
+                <!--This toggleanswer connects with id answer2 and this will pop up as the answer when clicked and pop down when clicked again like a toggle-->
+                <div class="question-box" onclick="toggleAnswer('answer2')">
+                    <span>How many hours do people spend on Instagram?</span>
+                </div>
+                <div class="answer" id="answer2">
+                    On average, users spend around 30 minutes to 1 hour per day on Instagram. However, for younger demographics, this time can increase significantly, sometimes exceeding 2 hours per day.
+                </div>
+                <!--This toggleanswer connects with id answer3 and this will pop up as the answer when clicked and pop down when clicked again like a toggle-->
+                <div class="question-box" onclick="toggleAnswer('answer3')">
+                    <span>What is the impact of Instagram on different age groups?</span>
+                </div>
+                <div class="answer" id="answer3">
+                    Instagram has a major impact on social behavior, particularly among teens and young adults. It influences trends, lifestyles, and consumer behavior, with users spending more time consuming media and interacting with brands.
+                </div>
+
+                <!--This toggleanswer connects with id answer4 and this will pop up as the answer when clicked and pop down when clicked again like a toggle-->
+                <div class="question-box" onclick="toggleAnswer('answer4')">
+                    <span>What is the most used feature on Instagram?</span>
+                </div>
+                <div class="answer" id="answer4"> 
+                    Stories are the most used feature on Instagram. With over 500 million users engaging with Instagram Stories daily, this feature has become the cornerstone of Instagram's interactive content.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class = "instadver">
+        <img src="instaadver.png">
+    </div>
+    <!--Footer with copyright-->
+    <footer>
+        <p>&copy; 2025 MediaMetrics. All rights reserved.</p>
+    </footer>
+    <!--Java script for Q&A toggle functionality-->
+    <!--Toggles are visisble for each answer box when clicked-->
+    <!--The onclick attribute on the questions links to this calling this function-->
+    <!--It finds the elment by ID and then toggles it to active-->
+    <!--If the active is added then it becomes visible-->
+    <!--If clicked again then it gets removed and hides the answer-->
+    <script>
+        
+        function toggleAnswer(answerId) {
+            var answer = document.getElementById(answerId);
+            answer.classList.toggle('active');
+        }
+    </script>
+
+
+</body>
+</html>

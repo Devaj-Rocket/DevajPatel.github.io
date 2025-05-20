@@ -1,0 +1,293 @@
+<!DOCTYPE html> <!-- Declares the document type and version of HTML -->
+<html lang="en"> <!-- Opens the HTML document with language set to English -->
+<head> 
+    <meta charset="UTF-8"> <!-- Sets the character encoding to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes the layout responsive on different devices -->
+    <title>Twitter - Social Media Insights</title> <!-- Sets the title of the webpage (appears in browser tab) -->
+    <link rel="stylesheet" href="style.css"> <!-- Links an external CSS file named style.css -->
+    <!-- Start of internal CSS styles -->
+    <style>
+
+        /* Base body styling */
+        body {
+            font-family: 'Montserrat', sans-serif; /* Sets font to Montserrat, falls back to sans-serif */
+            background-color: #111217; /* Dark background color */
+            color: #E4E4E4; /* Light text color */
+            margin: 0; /* Removes default margin */
+            padding: 0; /* Removes default padding */
+        }
+
+        /* Styling for the header element */
+        header {
+            position: fixed; /* Keeps the header fixed at the top while scrolling */
+            width: 100%; /* Full width of the viewport */
+            top: 0; /* Position at the top of the page */
+            left: 0; /* Align to the left edge */
+            background-color: #1F2833; /* Dark background color */
+            padding: 10px 0; /* Vertical padding */
+            z-index: 1000; /* Ensures header stays above other elements */
+        }
+
+        /* Styling for the brand name inside the nav */
+        nav .brand-name {
+            font-size: 2em; /* Large font size */
+            color: #66FCF1; /* Teal color */
+            text-align: center; /* Centered text */
+        }
+
+        /* Styling for the navigation bar */
+        .navbar {
+            display: flex; /* Enables Flexbox layout */
+            justify-content: space-between; /* Space between nav-left and nav-right */
+            align-items: center; /* Vertically center items */
+            background-color: #1F2833; /* Dark background */
+            padding: 10px 40px; /* Padding inside navbar */
+        }
+
+        /* Styling for the nav links on the right */
+        .nav-right a {
+            color: #C5C6C7; /* Light gray text */
+            text-decoration: none; /* Removes underline */
+            padding: 10px 15px; /* Spacing inside the link */
+            font-size: 1.1em; /* Slightly larger font size */
+        }
+
+        /* Hero section at the top of the page */
+        .hero-section {
+            padding: 120px 20px; /* Padding (top space to avoid overlapping fixed header) */
+            background: linear-gradient(to bottom, #0B0C10, #1F2833); /* Gradient background */
+            color: #E4E4E4; /* Light text color */
+            display: flex; /* Flexbox layout */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            flex-direction: column; /* Stack vertically */
+            text-align: center; /* Center align text */
+        }
+
+        /* Container for hero content */
+        .hero-content {
+            max-width: 2000px; /* Max width of the container */
+            width: 100%; /* Full width up to the max */
+            padding: 30px; /* Padding inside the container */
+            max-height: 80vh; /* Maximum height of 80% viewport */
+            overflow-y: auto; /* Adds vertical scroll if content overflows */
+        }
+
+        /* Header inside hero-right section */
+        .hero-right h1 {
+            font-size: 3em; /* Large font size */
+            color: #66FCF1; /* Teal color */
+            margin-bottom: 20px; /* Spacing below the heading */
+        }
+
+        /* Paragraph inside hero-right section */
+        .hero-right p {
+            font-size: 1.2em; /* Slightly larger font */
+            margin-bottom: 40px; /* Space below paragraph */
+        }
+
+        /* Question box styling (clickable FAQ section) */
+        .question-box {
+            background-color: #1F2833; /* Dark background */
+            border-radius: 8px; /* Rounded corners */
+            margin: 15px 0; /* Vertical spacing between questions */
+            padding: 20px; /* Padding inside the box */
+            color: #C5C6C7; /* Text color */
+            cursor: pointer; /* Shows pointer cursor on hover */
+            font-weight: 600; /* Semi-bold text */
+            font-size: 1.2em; /* Font size */
+            transition: background-color 0.3s ease; /* Smooth hover transition */
+        }
+
+        /* Hover effect for question box */
+        .question-box:hover {
+            background-color: #66FCF1; /* Changes background to teal on hover */
+            color: #111217; /* Changes text color to dark */
+        }
+
+        /* Hidden answer section by default */
+        .answer {
+            display: none; /* Hidden initially */
+            background-color: #2D3436; /* Slightly lighter dark background */
+            padding: 15px; /* Padding inside the answer box */
+            margin-top: 10px; /* Space above the answer */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 1em; /* Normal font size */
+            color: #E4E4E4; /* Light text color */
+        }
+
+        /* Display answer when active */
+        .answer.active {
+            display: block; /* Shows answer when the class 'active' is added */
+        }
+
+        /* Duplicate rule for hero-content  */
+        .hero-content {
+            max-height: 80vh; /* Max height again */
+            overflow-y: auto; /* Scroll if content overflows vertically */
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #1F2833; /* Dark footer background */
+            text-align: center; /* Center-align text */
+            padding: 20px; /* Padding inside footer */
+            color: #C5C6C7; /* Light gray text */
+        }
+
+        /* Paragraph inside footer */
+        footer p {
+            font-size: 1em; /* Regular font size */
+        }
+
+        /* Styling for the Twitter info box */
+        .about_twitter {
+            font-size: 15px; /* Small font size */
+            width: 1000px; /* Fixed width */
+            height: 300px; /* Fixed height */
+            border: 10px solid; /* Thick border */
+            border-image: linear-gradient(to left,#111217 ,#66FCF1 ) 1; /* Gradient border */
+            padding: 20px; /* Padding inside the box */
+            text-align: center; /* Center-align text */
+            font-family: sans-serif; /* Sans-serif font */
+            margin: 10px; /* Margin around the box */
+            color: #fafafa; /* Very light text color */
+        }
+
+        /* Styling for Twitter image inside the container */
+        .Twitteradver img {
+            width: 50%; /* Image takes up 50% width of its container */
+            height: 50%; /* Image height is also 50% */
+            border-radius: 20px; /* Rounded corners */
+            border: 5px solid #66FCF1; /* Solid teal border */
+            padding: 10px; /* Space between image and border */
+            margin: 20px; /* Space around the image box */
+        }
+
+        /* Container for the Twitter image */
+        .Twitteradver {
+            display: flex; /* Flexbox layout */
+            justify-content: center; /* Center image horizontally */
+            background-color: #1F2833; /* Dark background */
+            padding-bottom: 100px; /* Extra space below */
+        }
+
+    </style> <!-- End of internal CSS -->
+</head> <!-- End of head section -->
+
+<body>
+
+    <!-- Header section containing the navigation bar -->
+    <header>
+        <nav class="navbar">
+            <!-- Left part of the navbar with the site name -->
+            <div class="nav-left">
+                <span class="brand-name">MediaMetrics</span>
+            </div>
+            <!-- Right part of the navbar with links to other pages -->
+            <div class="nav-right">
+                <a href="index.html">Home</a> <!-- Link to home page -->
+                <a href="instagram.html">Instagram</a> <!-- Link to Instagram insights -->
+                <a href="tiktok.html">TikTok</a> <!-- Link to TikTok insights -->
+                <a href="twitter.html">Twitter</a> <!-- Link to Twitter insights -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main hero section containing content about Twitter -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="hero-right">
+
+                <!-- Spacer using <br> tags -->
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <!-- Page heading -->
+                <h1>Explore Twitter Insights</h1>
+
+                <!-- Section for detailed information about Twitter -->
+                <div class="about_twitter">
+                    <h2>Twitter, now known as X, is a social media platform launched in 2006 where users share short messages called tweets. Each tweet can be up to 280 characters long and can include text, images, videos, and links. The platform is known for its fast-paced, real-time updates and is often used for breaking news, trending topics, and public conversations. Users can engage by liking, replying to, or retweeting others' posts. It also features Spaces for live audio conversations and has a verification system, represented by the blue checkmark. Popular among individuals, journalists, businesses, celebrities, and governments, Twitter serves as a space for news, entertainment, activism, and community engagement.</h2> <!-- Placeholder for text (currently empty) -->
+                </div>
+
+                <!-- Instructions for users -->
+                <p>Click on the questions below to reveal data and insights about Twitter usage.</p>
+
+                <!-- Interactive question and answer blocks -->
+
+                <!-- Question 1 -->
+                <div class="question-box" onclick="toggleAnswer('answer1')"> <!-- Connects to function for button to work -->
+                    <span>Which age groups use Twitter the most?</span>
+                </div>
+                <!-- Answer 1 (initially hidden, shown when toggled) -->
+                <div class="answer" id="answer1"> <!-- Connects with the questions box and answer -->
+                    Twitter is most popular among young adults. The majority of users are aged between 18 and 34 years old, with 42% of internet users in this age group using Twitter regularly.
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question-box" onclick="toggleAnswer('answer2')"> <!-- Connects to function for button to work -->
+                    <span>How many hours do people spend on Twitter?</span>
+                </div>
+                <!-- Answer 2 -->
+                <div class="answer" id="answer2"> <!-- Connects with the questions box and answer -->
+                    On average, users spend about 30 minutes to 1 hour per day on Twitter. However, for news junkies and influencers, this time can be higher.
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question-box" onclick="toggleAnswer('answer3')"> <!-- Connects to function for button to work -->
+                    <span>What is the impact of Twitter on different age groups?</span>
+                </div>
+                <!-- Answer 3 -->
+                <div class="answer" id="answer3"> <!-- Connects with the questions box and answer -->
+                    Twitter has a significant impact on current events, politics, and global trends. It is used widely by both younger users who follow trends and older users who seek news and information.
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question-box" onclick="toggleAnswer('answer4')"> <!-- Connects to function for button to work -->
+                    <span>What is the most used feature on Twitter?</span>
+                </div>
+                <!-- Answer 4 -->
+                <div class="answer" id="answer4"> <!-- Connects with the questions box and answer -->
+                    The most used feature on Twitter is the tweet itself, with many users engaging in microblogging, trending topics, and direct communication with others through hashtags and replies.
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Image or advertisement related to Twitter -->
+    <div class="Twitteradver">
+        <img src="Twitteradver.png"> <!-- Displays Twitter-themed image -->
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2025 MediaMetrics. All rights reserved.</p> <!-- Copyright -->
+    </footer>
+
+    <!-- JavaScript function to toggle answer visibility when a question is clicked -->
+    <script>
+        function toggleAnswer(answerId) {
+            var answer = document.getElementById(answerId); // Gets the answer element by ID
+            answer.classList.toggle('active'); // Toggles the "active" class to show/hide the answer
+        }
+    </script>
+
+</body>
+</html>
+

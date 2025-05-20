@@ -1,0 +1,283 @@
+<!DOCTYPE html> <!-- Declares the document is an HTML5 document -->
+<html lang="en"> <!-- sets the language to English -->
+
+<head>
+    <meta charset="UTF-8"> <!-- for proper text rendering -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures proper scaling on mobile devices -->
+    <title>TikTok - Social Media Insights</title> <!-- The title of the page -->
+    
+    <link rel="stylesheet" href="style.css"> <!-- Links to an external CSS file-->
+<!-- Css style in html so each page has it easier -->
+    <style> 
+
+        /* Sets default styling for the entire page */
+        body {
+            font-family: 'Montserrat', sans-serif; /* Uses Montserrat font, falls back to sans-serif most of the time it doesn't */
+            background-color: #111217; /* background color */
+            color: #E4E4E4; /* text color */
+        }
+
+        /* Styles for the fixed header at the top */
+        header {
+            position: fixed; /* Fixes the header while scrolling */
+            width: 100%; /* Full width of the page */
+            background-color: #1F2833; /* background colour */
+            padding: 10px 0; /* Vertical padding */
+            z-index: 1000; /* Places header above other elements */
+        }
+
+        /* Styles for the brand name inside the nav */
+        nav .brand-name {
+            font-size: 2em; /* Sets font size to 2 times the base size */
+            color: #66FCF1; /* Aqua color */
+            text-align: center; /* Centers the text */
+        }
+
+        /* Styles for the navigation bar */
+        .navbar {
+            display: flex; /* Enables flexbox layout */
+            justify-content: space-between; /* Spaces items to the left and right */
+            align-items: center; /* Vertically centers the items */
+            background-color: #1F2833; /* Background color */
+            padding: 10px 40px; /* Padding on top/bottom and left/right */
+        }
+
+        /* Styles for the right side nav links */
+        .nav-right a {
+            color: #C5C6C7; /* Light gray color */
+            text-decoration: none; /* Removes underline */
+            padding: 10px 15px; /* Padding around links */
+            font-size: 1.1em; /* Slightly larger text */
+        }
+
+        /* Styles for the main hero section (top section of the page) */
+        .hero-section {
+            padding: 120px 20px; /* Top padding accounts for fixed header */
+            background: linear-gradient(to bottom, #0B0C10, #1F2833); /* Gradient background */
+            color: #E4E4E4; /* Text color */
+            display: flex; /* Uses flexbox */
+            justify-content: center; /* Centers items horizontally */
+            align-items: center; /* Centers items vertically */
+            flex-direction: column; /* Stacks items vertically */
+            text-align: center; /* Centers text */
+        }
+
+        /* Container for the content inside the hero section */
+        .hero-content {
+            max-width: 2000px; /* Limits max width */
+            width: 100%; /* Full width */
+            padding: 30px; /* Padding inside the container */
+        }
+
+        /* Styling for the main heading inside hero-right */
+        .hero-right h1 {
+            font-size: 3em; /* Large font size */
+            color: #66FCF1; /* Aqua color */
+            margin-bottom: 20px; /* Space below heading */
+        }
+
+        /* Paragraph styling inside hero-right */
+        .hero-right p {
+            font-size: 1.2em; /* Slightly larger than normal text */
+            margin-bottom: 40px; /* Space below the paragraph */
+        }
+
+        /* Styling for each clickable question container */
+        .question-box {
+            background-color: #1F2833; /* Dark background */
+            border-radius: 8px; /* Rounded corners */
+            margin: 15px 0; /* Vertical spacing */
+            padding: 20px; /* Inner spacing */
+            color: #C5C6C7; /* Light gray text */
+            cursor: pointer; /* Changes cursor to pointer on hover */
+            font-weight: 600; /* Bold text */
+            font-size: 1.2em; /* Slightly larger text */
+            transition: background-color 0.3s ease; /* Smooth transition on hover */
+        }
+
+        /* Hover effect for question box */
+        .question-box:hover {
+            background-color: #66FCF1; /* Changes background on hover */
+            color: #111217; /* Changes text color on hover */
+        }
+
+        /* Default style for answer content (hidden) */
+        .answer {
+            display: none; /* Hidden by default */
+            background-color: #2D3436; /* Dark gray background */
+            padding: 15px; /* Inner spacing */
+            margin-top: 10px; /* Spacing above */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 1em; /* Normal text size */
+            color: #E4E4E4; /* Light text */
+        }
+
+        /* Display answer when active */
+        .answer.active {
+            display: block; /* Makes the answer visible */
+        }
+
+        /* Allows the hero content to scroll if it's too tall */
+        .hero-content {
+            max-height: 80vh; /* Maximum height is 80% of the viewport */
+            overflow-y: auto; /* Adds vertical scroll if needed */
+        }
+
+        /* Styling for the footer section */
+        footer {
+            background-color: #1F2833; /* Dark background */
+            text-align: center; /* Centered text */
+            padding: 20px; /* Inner padding */
+            color: #C5C6C7; /* Light gray text */
+        }
+
+        /* Paragraph inside footer */
+        footer p {
+            font-size: 1em; /* Normal font size */
+        }
+
+        /* Styling for the "About TikTok" section */
+        .about_tiktok {
+            font-size: 15px; /* Font size for the text */
+            width: 1000px; /* Fixed width */
+            height: 300px; /* Fixed height */
+            border: 10px solid; /* Solid border of 10px */
+            border-image: linear-gradient(to left, #111217, #66FCF1) 1; /* Gradient border */
+            padding: 20px; /* Padding inside the box */
+            text-align: center; /* Centered text */
+            font-family: sans-serif; /* Font family */
+            margin: 10px; /* Margin around the box */
+            color: #fafafa; /* Near white text color */
+        }
+
+        /* Image styling inside the TikTok advertisement section */
+        .tiktokadver img {
+            width: 50%; /* Scales image width to 50% of parent */
+            height: 50%; /* Scales image height to 50% of parent */
+            border-radius: 20px; /* Rounded corners on image */
+            border: 5px solid #66FCF1; /* Aqua border */
+            padding: 10px; /* Padding inside border */
+            margin: 20px; /* Margin around the image */
+        }
+
+        /* Styling for the TikTok advertisement container */
+        .tiktokadver {
+            display: flex; /* Uses flex layout */
+            justify-content: center; /* Centers the content horizontally */
+            background-color: #1F2833; /* Background color */
+            padding-bottom: 100px; /* Bottom padding */
+        }
+
+    </style> <!-- End of internal CSS -->
+</head> <!-- End of document head -->
+
+<body>
+    <!-- Header section with navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <!-- Site logo or brand name -->
+                <span class="brand-name">MediaMetrics</span>
+            </div>
+            <div class="nav-right">
+                <!-- Navigation links to different pages -->
+                <a href="index.html">Home</a>
+                <a href="instagram.html">Instagram</a>
+                <a href="tiktok.html">TikTok</a>
+                <a href="twitter.html">Twitter</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main hero section for TikTok insights -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="hero-right">
+                <!-- Spacer using line breaks (not best practice, but adds vertical space) -->
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <!-- Page heading -->
+                <h1>Explore Tiktok Insights</h1>
+
+                <!-- Description about TikTok -->
+                <div class="about_tiktok">
+                    <h2>
+                        TikTok is a popular social media platform that allows users to create, share, and discover short-form videos, typically ranging from 15 seconds to 3 minutes. Launched in 2016 by the Chinese company ByteDance, TikTok has become a global sensation, especially among younger audiences. The app offers a wide range of video formats, including lip-syncing, dance challenges, comedy skits, and tutorials. Users can enhance their videos with music, effects, and filters, and engage with others through likes, comments, and shares. TikTok's algorithm curates a personalised feed for each user, making it easy to discover viral content. It's become a major platform for influencers, brands, and creators, driving trends, memes, and social movements worldwide.
+                    </h2>
+                </div>
+
+                <!-- Prompt to interact with questions -->
+                <p>Click on the questions below to reveal data and insights about TikTok usage.</p>
+
+                <!-- First question box -->
+                <div class="question-box" onclick="toggleAnswer('answer1')"> <!-- Connects to function for button to work -->
+                    <span>Which age groups use TikTok the most?</span>
+                </div>
+                <!-- First answer section (initially hidden) -->
+                <div class="answer" id="answer1"> <!-- Connects with the questions box and answer -->
+                    The age group that uses TikTok the most is individuals between 16 and 24 years old, who make up approximately 60% of the platform's global user base, reflecting the app's strong appeal among Gen Z audiences who are drawn to its short-form video content, viral challenges, music trends, and highly personalized algorithm, which collectively foster a creative, fast-paced, and interactive social environment that continues to dominate youth engagement across digital platforms worldwide.
+                </div>
+
+                <!-- Second question box -->
+                <div class="question-box" onclick="toggleAnswer('answer2')"> <!-- Connects to function for button to work -->
+                    <span>How much time do people spend on TikTok daily?</span>
+                </div>
+                <!-- Second answer section -->
+                <div class="answer" id="answer2"> <!-- Connects with the questions box and answer -->
+                    On average, TikTok users spend 58 minutes per day on the app globally, with U.S. users spending 73 minutes, and users in the UK averaging 1 hour and 30 minutes daily, while 20% of young users spend over 2 hours per day, highlighting the platform's increasing engagement.
+                </div>
+
+                <!-- Third question box -->
+                <div class="question-box" onclick="toggleAnswer('answer3')"> <!-- Connects to function for button to work -->
+                    <span>What kind of content is most popular on TikTok?</span>
+                </div>
+                <!-- Third answer section -->
+                <div class="answer" id="answer3"> <!-- Connects with the questions box and answer -->
+                    The most popular content on TikTok includes dance challenges, lip-syncing, comedic skits, DIY tutorials, memes, and viral trends, with users frequently participating in challenges, creating short, creative videos set to music, and engaging with popular hashtags.
+                </div>
+
+                <!-- Fourth question box -->
+                <div class="question-box" onclick="toggleAnswer('answer4')"> <!-- Connects to function for button to work -->
+                    <span>What impact does TikTok have on users' behavior?</span>
+                </div>
+                <!-- Fourth answer section -->
+                <div class="answer" id="answer4"> <!-- Connects with the questions box and answer -->
+                    TikTok has significantly influenced users behavior by shaping trends, music charts, and consumer habits, with its algorithm-driven feed driving viral content, fostering influencer marketing, and encouraging users to engage in short-form content creation, which has impacted everything from product sales to global social movements.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TikTok promotional image or ad section -->
+    <div class="tiktokadver">
+        <img src="tiktokadver.png">
+    </div>
+
+    <!-- Footer with copyright -->
+    <footer>
+        <p>&copy; 2025 MediaMetrics. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript function to toggle answer visibility when a question is clicked -->
+    <script>
+        function toggleAnswer(answerId) {
+            var answer = document.getElementById(answerId);
+            answer.classList.toggle('active');
+        }
+    </script>
+
+</body>

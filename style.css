@@ -1,0 +1,386 @@
+
+/*inserting the Montserrat font*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap'); 
+
+
+/*General body styling for the index page*/
+body {
+    font-family: 'Montserrat', sans-serif; /*Montserrat font*/
+    background-color: #111217; /*background colour for aesthetic*/
+    color: #E4E4E4; /*White text for readability*/
+    display: flex; /*Enables flexbox layout for flexibility*/
+    flex-direction: column; /*places content vertically*/
+    height: 100%; /*takes up full height of the page*/
+}
+
+/*Navigation bar design*/
+.navbar {
+    display: flex; /*Arrange elements horizontally*/
+    justify-content: space-between; /*Distribute space between navbar items*/
+    align-items: center; /*Align items vertically by default so it doesn't go to one side or the other*/
+    background: rgba(31, 40, 51, 0.9); /*background*/
+    padding: 20px 40px; /*Add padding for spacing*/
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /*shadow effect*/
+    position: fixed; /*Fixed navbar at the top*/
+    width: 100%; /*Full width navbar*/
+    z-index: 1000; /*Ensure navbar remains above other elements*/
+}
+
+/*left side of navbar*/
+.nav-left {
+    display: flex; /*Arrange elements in a row*/
+    align-items: center; /*Align name*/
+    gap: 15px; /*Spacing between text*/
+}
+
+/*name styling of website called brand-name*/
+.brand-name {
+    font-size: 2em; /* the size of the font which is 2 times 16 because default is 16 so everything stays in proportion*/
+    font-weight: 700; /*Bold font*/
+    color: #66FCF1; /*color of text*/
+    text-transform: uppercase; /*Convert text to uppercase*/
+}
+
+/*Right side navigation links*/
+.nav-right {
+    display: flex; /*Arrange links horizontally*/
+    justify-content: space-evenly; /*Distribute links evenly*/
+    gap: 20px; /*Space between links*/
+    align-items: center; /*Align links vertically*/
+    width: 100%; /*Occupy full width*/
+}
+
+/*Navigation links with gradient animation*/
+.nav-right a {
+    color: transparent; /*Hide default text color*/
+    text-decoration: none; /*Remove underline*/
+    font-size: 1.1em; /*Set font size*/
+    font-weight: 500; /*Adjust font weight*/
+    padding: 12px 25px; /*Increase padding for a button-like look*/
+    border-radius: 30px; /*Rounded buttons*/
+    background-image: linear-gradient(45deg, #66FCF1, #45A29E, #C5C6C7, #66FCF1);
+    background-size: 400% 400%; /*Expand gradient*/
+    background-position: 100% 50%; 
+    -webkit-background-clip: text; /*Apply gradient effect*/
+    animation: gradientMove 4s ease infinite; /*Continuous gradient shift*/
+}
+
+/* Gradient animation for navbar links */
+@keyframes gradientMove { /*the gradient move is the type of animation*/
+    0% {
+        background-position: 100% 50%; /*100% horizontalyl and 50% verticallyally*/
+    }
+    50% {
+        background-position: 0% 50%; /*0% horizontally and 50% vertically*/
+    }
+    100% {
+        background-position: 100% 50%; /*returns to starting position*/
+    }
+}
+
+/*Main hero section styling*/
+.hero-section {
+    display: flex; /*Enable flexbox for layout*/
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Full viewport height */
+    background: linear-gradient(to bottom, #0B0C10, #1F2833); /* Smooth gradient background */
+    flex-grow: 1; /* Expand section to 1 part*/
+}
+
+/* Hero content layout */
+.hero-content {
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align elements */
+    justify-content: center; /* Center align vertically */
+    max-width: 1200px; /* Limit content width */
+    width: 100%; /* Ensure responsiveness */
+    padding: 20px; /* Add spacing */
+    text-align: center; /* Center align text */
+}
+
+/* Logo inside hero section */
+.hero-left {
+    margin-bottom: 20px;
+}
+/*css for the logo*/
+.hero-left img.hero-logo {
+    width: 150px; /* Adjust size */
+    height: auto; /* Maintain proportions */
+}
+
+/* Hero right side text */
+.hero-right {
+    display: flex; /* Flexbox Layout */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center align content vertically */
+    align-items: center; /* Center align elements */
+}
+
+/* Hero heading */
+.hero-right h1 {
+    font-size: 36px; /* Large heading */
+    margin-bottom: 10px; /* Space below heading */
+}
+
+/* Hero subheading */
+.hero-right p {
+    font-size: 18px; /* Set paragraph text size */
+    margin-bottom: 20px; /* Space below paragraph */
+}
+
+/* Call-to-action button */
+.cta-button {
+    background-color: #66FCF1; /* Background color */
+    color: #111217; /* Text color */
+    border: none; /* No border */
+    padding: 15px 35px; /* The padding for the button */
+    font-size: 1.2em; /* Font size is 1.2 times the original of 16px */
+    font-weight: 600; /* Boldness of the text */
+    border-radius: 5px; /* Smooth corners */
+    cursor: pointer; /* The cursor changes to the pointer for a button feel */
+    text-decoration: none; /* Remove underline */
+    transition: all 0.3s ease; /* The transitions applied have in 0.3 second intervals */
+    display: inline-block; /* Elements sit next to each other but still behave like blocks doesn't really matter dor this case due to no element next to each other*/
+}
+
+/* CTA button hover effect */
+.cta-button:hover {
+    background-color: #45A29E; /* Change color on hover */
+    transform: scale(1.05); /* Slight growth effect */
+}
+
+/* the footer at the bottom of the page */
+footer {
+    background-color: #1F2833; /* Footer background */
+    text-align: center; /* Center align content */
+    padding: 30px 20px; /* Add padding */
+    border-top: 2px solid #66FCF1; /* Highlight footer */
+    color: #C5C6C7; /* Text color */
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+/* Footer links */
+.footer-links {
+    margin-bottom: 10px;
+}
+
+/* The footer links is just the text because normally there would be links just for a more professional clean look */
+.footer-links a {
+    color: #C5C6C7; /* Default text color */
+    text-decoration: none; /* Remove underline */
+    margin: 0 15px; /* Space between links */
+    font-size: 1em; /* The normal 16px dedault font size set for the page */
+}
+
+/* Footer link hover effect */
+.footer-links a:hover {
+    color: #66FCF1; /* Highlight on hover */
+}
+
+/* Footer text */
+footer p {
+    font-size: 1em; /* The normal 16px dedault font size set for the page */
+    margin-top: 10px; /* Margin from the top is 10px */
+    color: #E4E4E4; /* The colour of the text */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Using Montserrat font for a modern and clean design */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap'); 
+
+/* Default margin and padding for consistent spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Keep the elements total size as defined */
+}
+
+
+/* Main page styling */
+body {
+    font-family: 'Montserrat', sans-serif; /* Applying Montserrat font */
+    background-color: #111217; /* Dark background for contrast */
+    color: #E4E4E4; /* Light text for readability */
+}
+
+/* Navigation bar design */
+.navbar {
+    display: flex; /* Arrange elements horizontally */
+    justify-content: space-between; /* Space out navbar items */
+    align-items: center; /* Align items vertically */
+    background-color: #1F2833; /* Dark navbar background */
+    padding: 20px 40px; /* Add spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+    position: fixed; /* Fixed navbar at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure navbar stays above other content */
+}
+
+/* Main hero section styling */
+.hero-section {
+    display: flex; /* Enable flexbox layout */
+    justify-content: center; /* Center content */
+    align-items: center; /* Align content vertically */
+    height: 100vh; /* Full viewport height */
+    background-color: #f8f8f8; /* Light background */
+    text-align: center; /* Center-align text */
+}
+
+/* Hero content layout */
+.hero-content {
+    display: flex; /* Enable flexbox layout horizontally */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Align content centrally */
+    justify-content: center; /* Center align vertically */
+    max-width: 1200px; /* Limit content width */
+    width: 100%;
+    padding: 20px; /* Add spacing */
+}
+
+/* Hero heading and paragraph with gradient text animation */
+.hero-right h1, .hero-right p {
+    font-size: 36px; /* Set font size */
+    margin-bottom: 10px; /* Space below text */
+    background-image: linear-gradient(45deg, #66FCF1, #45A29E, #C5C6C7, #66FCF1); /* The background has a gradient */
+    background-size: 400% 400%; /* Expand gradient */
+    color: transparent; /* Hide default text color */
+    -webkit-background-clip: text; /* Apply background to text itself not the surrounding area*/
+    animation: gradientText 4s ease infinite; /* Continuous gradient shift */
+}
+
+/* Gradient animation effect SAME AS BEFORE*/
+@keyframes gradientText {
+    0% { background-position: 100% 50%; }
+    50% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Subheading text */
+.hero-right p {
+    font-size: 18px; /* Adjust font size */
+    margin-bottom: 20px; /* Space below text */
+}
+
+
+/* Styling for main button */
+.cta-button {
+    background-color: #66FCF1; /* Highlight button color */
+    color: #111217; /* Dark text for contrast */
+    border: none; /* There is no border */
+    padding: 15px 35px; /* Add padding */
+    font-size: 1.2em; /* Adjust font size */
+    font-weight: 600; /* Emphasize button text */
+    border-radius: 5px; /* Smooth rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    text-decoration: none; /* Remove default underline */
+    transition: all 0.3s ease; /* Smooth transition */
+    display: inline-block;
+}
+
+/* Button hover effect */
+.cta-button:hover {
+    background-color: #45A29E; /* Darker hover effect */
+    transform: scale(1.05); /* Slight hover growth */
+}
+
+/* Footer container */
+footer {
+    background-color: #1F2833; /* Dark footer background */
+    text-align: center; /* Center-align content */
+    padding: 30px 20px; /* Add padding */
+    border-top: 2px solid #66FCF1; /* Highlight footer */
+    margin-top: auto; /* Push footer to bottom */
+    color: #C5C6C7; /* Subtle text */
+}
+
+/* Footer links */
+.footer-links {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #C5C6C7; /* Default text color */
+    text-decoration: none; /* Remove underline */
+    margin: 0 15px; /* Space between links */
+    font-size: 1em;
+}
+
+
+/* Footer text */
+footer p {
+    font-size: 1em; /* The font size which is defualt 1 times at 16px */
+    margin-top: 10px; /*The space it keeps from the top of the page but because the position is fixed it will stay at the bottom because of the footer element*/
+    color: #E4E4E4; /* The colour of the text */
+}
+
+
+/* Hero section with background image */
+.hero-section {
+    display: flex; /* The text layout horizontally*/
+    justify-content: center; /* Center content */
+    align-items: center; /* Align content*/
+    height: 100vh; /* The full height of the viewport */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.3)), url('background-image.jpg') no-repeat center center fixed; /* The background gradint of the platform page */
+    background-size: cover; /* Ensure image covers the section */
+    background-position: center center; /* Aligns the center and for horizontal and verticall position this is deault in the center*/
+}
+
+/* Adjust hero content */
+.hero-content {
+    display: flex; /* The text layout horizontally */
+    flex-direction: column; /* Everything will be aligned vertically by defualt or in a column on top of each other */
+    align-items: center; /* Align content*/
+    justify-content: center; /* Center content */
+    max-width: 1200px; /* The max width of the page */
+    width: 100%; /* The width is fully used */
+    padding: 20px; /* The spacing for the hero content all around */
+    text-align: center; /* The text is alinged in the center */
+}
+
+/* Adjust hero logo */
+.hero-left img.hero-logo {
+    width: 150px; /* Set logo size */
+    height: auto; /* The height stays in proportion */
+}
+
+
+/* Layout for platform GIFs */
+.platforms-gifs {
+    display: flex; /* The text layout horizontally */
+    justify-content: center; /* Center content */
+    align-items: center; /* Align content*/
+    gap: 30px; /* Space between GIFs */
+    margin-top: 30px; /* The space from the top of the page */
+}
+
+/* Styling for each platform GIF */
+.platform-gif {
+    width: 200px; /* The width of the GIF */
+    height: 200px; /* The height of the GIF */
+    border-radius: 8px; /* Smooth edges */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add depth */
+    transition: transform 0.3s ease; /* Smooth scaling */
+    object-fit: cover; /* Maintain proportions */
+}
+
+/* GIF hover effect */
+.platform-gif:hover {
+    transform: scale(1.05); /* Slight hover expansion */
+}
+
